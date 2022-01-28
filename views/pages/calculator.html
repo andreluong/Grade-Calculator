@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grade Calculator</title>
+        <link rel="stylesheet" href="calculator.css">
+        <script src="calculator.js" defer></script>
+    </head>
+    <body>
+        <div id="whiteBackground">
+            <div id="topBlackBar"></div>
+            <h1>Grade Calculator</h1>
+            <div id="grayBackground">   
+                <h2>Activities</h2>
+                <p>Give grades to the numeric activities:</p>
+                <table id="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Short Name</th>
+                        <th>Weight</th>
+                        <th>Grade</th>
+                        <th>Percent</th>
+                    </tr>
+                    <tr>
+                        <td>Activity 1</td>
+                        <td>A1</td>
+                        <td>
+                            <input type="number" id="weight_1" autocomplete="off">
+                        </td>
+                        <td>
+                            <input type="number" id="grade1_1" autocomplete="off" onkeyup="computePercent()">
+                            <span>/</span>
+                            <input type="number" id="grade2_1" autocomplete="off" onkeyup="computePercent()">
+                        </td>
+                        <td>
+                            <p id="percent_1"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Activity 2</td>
+                        <td>A2</td>
+                        <td>
+                            <input type="number" id="weight_2" autocomplete="off">
+                        </td>
+                        <td>
+                            <input type="number" id="grade1_2" autocomplete="off" onkeyup="computePercent()">
+                            <span>/</span>
+                            <input type="number" id="grade2_2" autocomplete="off" onkeyup="computePercent()">
+                        </td>
+                        <td>
+                            <p id="percent_2"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Activity 3</td>
+                        <td>A3</td>
+                        <td>
+                            <input type="number" id="weight_3" autocomplete="off">
+                        </td>
+                        <td>
+                            <input type="number" id="grade1_3" autocomplete="off" onkeyup="computePercent()">
+                            <span>/</span>
+                            <input type="number" id="grade2_3" autocomplete="off" onkeyup="computePercent()">
+                        </td>
+                        <td>
+                            <p id="percent_3"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Activity 4</td>
+                        <td>A4</td>
+                        <td>
+                            <input type="number" id="weight_4" autocomplete="off">
+                        </td>
+                        <td>
+                            <input type="number" id="grade1_4" autocomplete="off" onkeyup="computePercent()">
+                            <span>/</span>
+                            <input type="number" id="grade2_4" autocomplete="off" onkeyup="computePercent()">
+                        </td>
+                        <td>
+                            <p id="percent_4"></p>
+                        </td>
+                    </tr>
+                </table>
+                <button id="addActivity">ADD ACTIVITY</button> 
+                <h2>Result</h2>
+                <p id="result"></p>
+                <button id="weighted">WEIGHTED</button>
+                <button id="mean">MEAN</button>
+            </div>
+            <div id="botBlackBar"></div>
+        </div>
+    </body>
+</html>
