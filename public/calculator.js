@@ -1,7 +1,11 @@
-var numActivities = 4;
+var numActivities = 4; // number of activites in table
 
+// Onclick event listeners for buttons
 document.getElementById("addActivity").addEventListener("click", addActivity);
+document.getElementById("mean").addEventListener("click", computeMean);
+document.getElementById("weighted").addEventListener("click", computeWeighted);
 
+// Adds a new activity row to the table
 function addActivity(){
     numActivities++;
     var table = document.getElementById("table");
@@ -41,6 +45,10 @@ function addActivity(){
     cell5.appendChild(outputPercentage);
 }
 
+/**
+ * Computes the percentage of all rows in the table
+ * Skips a row if a grade does not have a value
+ */
 function computePercent(){
     for(let i = 1; i <= numActivities; i++){
         var grade1 = document.getElementById("grade1_" + i).value;
@@ -55,11 +63,14 @@ function computePercent(){
     }
 }
 
-document.getElementById("mean").addEventListener("click", computeMean);
-
+/**
+ * Computes the mean using all percentages in the table
+ * Does not include a row if the percentage if it is infinite or NaN
+ */
 function computeMean(){
     var sumGrades = 0;
     var numGrades = 0;
+
     for(let i = 1; i <= numActivities; i++){
         var percentage = parseFloat(document.getElementById("percent_" + i).value);
         if(!isNaN(percentage) && isFinite(percentage)){
@@ -69,14 +80,17 @@ function computeMean(){
     }
     var mean = sumGrades / numGrades;
     mean = (Math.round(mean * 100) / 100).toFixed(2);
-    document.getElementById("result").innerHTML = "Mean of grades: " + mean;
+    document.getElementById("result").innerHTML = "Mean of grades: " + mean + "/100";
 }
 
-document.getElementById("weighted").addEventListener("click", computeWeighted);
-
+/**
+ * Computes the weighted grades using all percentages and weights in the table
+ * Does not include a row if the weight is not specified or the percentage is infinite or NaN
+ */
 function computeWeighted(){
     var sumScores = 0;
     var sumWeights = 0;
+
     for(let i = 1; i <= numActivities; i++){
         var percentage = parseFloat(document.getElementById("percent_" + i).value);
         var weight = parseInt(document.getElementById("weight_" + i).value);
@@ -87,5 +101,5 @@ function computeWeighted(){
     }
     var weighted = sumScores / sumWeights;
     weighted = (Math.round(weighted * 100) / 100).toFixed(2);
-    document.getElementById("result").innerHTML = "Weighted grades: " + weighted;
+    document.getElementById("result").innerHTML = "Weighted grades: " + weighted + "/100";
 }
